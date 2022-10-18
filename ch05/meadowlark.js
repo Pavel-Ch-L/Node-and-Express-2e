@@ -22,6 +22,11 @@ app.use(handlers.notFound)
 
 app.use(handlers.serverError)
 
-app.listen(port, () => {
-  console.log(`Express is running on http://localhost:${port}...`);
-})
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Express is running on http://localhost:${port}...`);
+  })
+} else {
+  module.exports = app
+}
+
