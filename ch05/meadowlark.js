@@ -1,4 +1,5 @@
 const fortune = require('./lib/fortune')
+const handlers = require('./lib/handlers')
 const express= require('express')
 const {engine} = require('express-handlebars');
 const app = express()
@@ -13,26 +14,13 @@ app.set('view engine', '.hbs');
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', (req, res) => {
-  res.render('home')
-})
+app.get('/', handlers.home)
 
-app.get('/about', (req, res) => {
-  res.render('about', {
-    fortune: fortune.getFortune()
-  })
-})
+app.get('/about', handlers.about)
 
-app.use((req, res) => {
-  res.status(404)
-  res.render('404')
-})
+app.use(handlers.notFound)
 
-app.use((err, req, res, next) => {
-  console.error(err.message)
-  res.status(500)
-  res.render('500')
-})
+app.use(handlers.serverError)
 
 app.listen(port, () => {
   console.log(`Express is running on http://localhost:${port}...`);
