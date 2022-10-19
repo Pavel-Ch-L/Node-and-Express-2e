@@ -1,4 +1,3 @@
-const fortune = require('./lib/fortune')
 const handlers = require('./lib/handlers')
 const express= require('express')
 const {engine} = require('express-handlebars');
