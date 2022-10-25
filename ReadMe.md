@@ -8,3 +8,4 @@
 ### [Глава 6. Объекты запроса и ответа](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch06)
 ### [Глава 7. Шаблонизация с помощю Handlebars](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch07)
 ### [Глава 8. Обработка форм](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch08)
+### [Глава 9. Cookie-файлы и сеансы](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch09)
