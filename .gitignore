@@ -2,3 +2,5 @@
 node_modules
 coverage
 my_credentials.js
+data
+temp.js
