@@ -16,3 +16,4 @@
 ### [Глава 14. Маршрутизация](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch14)
 ### [Глава 15. REST API и JSON](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch15)
 ### [Глава 16. Одностраничные приложения](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch16)
+### [Глава 17. Статический контент](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch17)
