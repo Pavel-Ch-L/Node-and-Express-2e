@@ -1,6 +1,6 @@
 const { credentials } = require('./config')
 
-// initialize database connection
+// Создание подключения к БД
 const mongoose = require('mongoose')
 const { connectionString } = credentials.mongo
 if(!connectionString) {
@@ -15,7 +15,7 @@ db.on('error', err => {
 })
 db.once('open', () => console.log('MongoDB connection established'))
 
-// seed vacation data (if necessary)
+// Зпись туров в БД если необходимо
 const Vacation = require('./models/vacation.js')
 Vacation.find((err, vacations) => {
   if(err) return cosole.error(err)
@@ -83,6 +83,7 @@ const User = require('./models/user')
 module.exports = {
   getVacations: async (options = {}) => Vacation.find(options),
   getVacationBySku: async sku => Vacation.findOne({ sku }),
+  // Обновление существующих туров
   updateVacationBySku: async (sku, data) => Vacation.updateOne({ sku }, data),
   addVacationInSeasonListener: async (email, sku) => {
     await VacationInSeasonListener.updateOne(
@@ -97,5 +98,6 @@ module.exports = {
   getUserById: async id => User.findById(id),
   getUserByAuthId: async authId => User.findOne({ authId }),
   addUser: async data => new User(data).save(),
+  // Закрытие соединения с базой
   close: () => mongoose.connection.close(),
 }

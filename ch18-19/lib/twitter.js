@@ -1,12 +1,12 @@
 const https = require('https')
-const qs = require('querystringify')
+const qs = require('querystringify') // Для создангия строки запроса из объекта
 
 module.exports = twitterOptions => {
   
-	// this variable will be invisible outside of this module
+  // Кэширование токена доступа
   let accessToken = null
 
-  // this function will be invisible outside of this module
+  // Получение токена доступа
   const getAccessToken = async () => {
     if(accessToken) return accessToken
 
@@ -41,6 +41,7 @@ module.exports = twitterOptions => {
   }
 
 	return {
+    // Метод поиска твитов
 		search: async (query, count) => {
       const accessToken = await getAccessToken()
       const options = {
@@ -63,6 +64,7 @@ module.exports = twitterOptions => {
       )
     },
 
+    // Получает HTML для отображения твитов
     embed: async (url, options = {}) => {
       options.url = url
       const accessToken = await getAccessToken()

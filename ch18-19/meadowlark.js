@@ -110,7 +110,7 @@ app.get('/vacations', handlers.listVacations)
 app.get('/notify-me-when-in-season', handlers.notifyWhenInSeasonForm)
 app.post('/notify-me-when-in-season', handlers.notifyWhenInSeasonProcess)
 
-// utility routes
+// Обработка валют
 app.get('/set-currency/:currency', handlers.setCurrency)
 
 const db = require('./db')
@@ -187,6 +187,7 @@ const getTopTweets = ((twitterClient, search) => {
   }
 })(twitterClient, '#Oregon #travel')
 
+// Маршрут для обработки твитов
 app.get('/social', async (req, res) => {
   res.render('social', { tweets: await getTopTweets() })
 })

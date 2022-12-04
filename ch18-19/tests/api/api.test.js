@@ -32,7 +32,7 @@ describe('API tests', () => {
     const vacations = await _fetch('get', '/api/vacations')
     expect(vacations.length).not.toBe(0)
     const vacation0 = vacations[0]
-    // at this moment, all we can do is make sure the HTTP request is successful
+    // Проверяем, что HTTP запрос успешен
     await _fetch('post', `/api/vacation/${vacation0.sku}/notify-when-in-season`,
       { email: 'test@meadowlarktravel.com' })
   })
@@ -41,7 +41,7 @@ describe('API tests', () => {
     const vacations = await _fetch('get', '/api/vacations')
     expect(vacations.length).not.toBe(0)
     const vacation0 = vacations[0]
-    // at this moment, all we can do is make sure the HTTP request is successful
+    // Проверяем, что HTTP запрос успешен
     await _fetch('delete', `/api/vacation/${vacation0.sku}`)
   })
 

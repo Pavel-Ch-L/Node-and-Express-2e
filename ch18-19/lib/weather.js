@@ -1,3 +1,5 @@
+// Получение метеоданных
+
 const https = require('https')
 const { URL } = require('url')
 

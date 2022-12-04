@@ -4,10 +4,8 @@ exports.api = {}
 
 exports.home = (req, res) => res.render('home')
 
-// **** these handlers are for browser-submitted forms
+// **** Обработчик форм отправленных браузером
 exports.newsletterSignup = (req, res) => {
-  // we will learn about CSRF later...for now, we just
-  // provide a dummy value
   res.render('newsletter-signup', { csrf: 'CSRF token goes here' })
 }
 exports.newsletterSignupProcess = (req, res) => {
@@ -17,7 +15,7 @@ exports.newsletterSignupProcess = (req, res) => {
   res.redirect(303, '/newsletter-signup/thank-you')
 }
 exports.newsletterSignupThankYou = (req, res) => res.render('newsletter-signup-thank-you')
-// **** end browser-submitted form handlers
+// **** end Обработчик форм отправленных браузером
 
 exports.vacationPhotoContest = (req, res) => {
   const now = new Date()
@@ -40,17 +38,16 @@ exports.vacationPhotoContestProcess = (req, res, fields, files) => {
 const pathUtils = require('path')
 const fs = require('fs')
 
-// create directory to store vacation photos (if it doesn't already exist)
+// Создать дирректории для хранения фото туров если не созданы
 const dataDir = pathUtils.resolve(__dirname, '..', 'data')
 const vacationPhotosDir = pathUtils.join(dataDir, 'vacation-photos')
 if(!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
 if(!fs.existsSync(vacationPhotosDir)) fs.mkdirSync(vacationPhotosDir)
 
 function saveContestEntry(contestName, email, year, month, photoPath) {
-  // TODO...this will come later
+  // TODO...
 }
 
-// we'll want these promise-based versions of fs functions in our async function
 const { promisify } = require('util')
 const mkdir = promisify(fs.mkdir)
 const rename = promisify(fs.rename)
@@ -71,8 +68,6 @@ exports.api.vacationPhotoContestError = (req, res, message) => {
 
 // **** these handlers are for fetch/JSON form handlers
 exports.newsletter = (req, res) => {
-  // we will learn about CSRF later...for now, we just
-  // provide a dummy value
   res.render('newsletter', { csrf: 'CSRF token goes here' })
 }
 exports.api.newsletterSignup = (req, res) => {
@@ -116,8 +111,6 @@ exports.listVacations = async (req, res) => {
   res.render('vacations', context)
 }
 
-// note that this redirects to the /vacations page, but may
-// want to use on // other pages!  should fix....
 exports.setCurrency = (req, res) => {
   req.session.currency = req.params.currency
   return res.redirect(303, '/vacations')

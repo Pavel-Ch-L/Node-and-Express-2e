@@ -1,3 +1,5 @@
+// Скрипт для геокодирования туров в БД
+
 const db = require('./db')
 const geocode = require('./lib/geocode')
 
