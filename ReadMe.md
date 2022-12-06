@@ -22,3 +22,4 @@
 ### [Глава 20. Отладка](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch20)
 ### [Глава 21. Ввод в эксплуатацию](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch21)
 ### [Глава 22. Поддержка](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch22)
+### [Глава 23. Дополнительные ресурсы](https://github.com/Pavel-Ch-L/Node-and-Express-2e/tree/master/ch23)
